@@ -1,0 +1,8 @@
+      invoke  active_record
+      create    db/migrate/20161006080307_devise_create_users.rb
+      create    app/models/user.rb
+      invoke    test_unit
+      create      test/models/user_test.rb
+      create      test/fixtures/users.yml
+      insert    app/models/user.rb
+       route  devise_for :users
