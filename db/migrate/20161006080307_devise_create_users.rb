@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :password
       t.string :first_name
       t.string :last_name
-      t.boolean :admin,			:default => false
+      t.boolean :admin,			:default => true
       
       t.integer :team_id
       
