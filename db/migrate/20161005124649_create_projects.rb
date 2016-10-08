@@ -6,7 +6,8 @@ class CreateProjects < ActiveRecord::Migration
       t.datetime :start_date
       t.datetime :end_date
       
-      t.integer :team_id
+      #t.integer :team_id
+      t.references :team, index: true, foreign_key: true
 
       t.timestamps null: false
     end
