@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :projects
   resources :users
   
-  get 'persons/profile', as: 'user_root'
+  #get 'persons/profile', as: 'user_root'
+  get 'users/:id' => 'user#show'
+  
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
