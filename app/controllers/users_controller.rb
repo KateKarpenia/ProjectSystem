@@ -40,7 +40,13 @@ def destroy
     @user = User.find(params[:id]).destroy
     flash[:success] = "User deleted."
     redirect_to users_url
-  end
+end
+
+def join
+	@user = User.find(current_user)
+	@team = Team.find(params[:team_id])
+	@user.update_attribute(:team, @team)
+end
 
 private
 

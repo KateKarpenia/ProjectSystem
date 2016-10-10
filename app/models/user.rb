@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 	belongs_to :team
+	validates :team_id, presence: false
 	
 	before_save { self.email = email.downcase }
 	validates :first_name, presence: true, length: { maximum: 50 }
@@ -9,6 +10,8 @@ class User < ActiveRecord::Base
 						uniqueness: { case_sensitive: false }
 	#has_secure_password
   	validates :password, length: { minimum: 6 }
+  	
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

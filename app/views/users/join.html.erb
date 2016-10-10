@@ -1,0 +1,18 @@
+
+
+<p>
+  <strong>You are added</strong>
+  <!-- <%= @user.team %> -->
+</p>
+
+<%= link_to 'Back', users_path %>
+
+<%= link_to 'Project System', controller: 'projects' %>
+
+<%= link_to "Settings", edit_user_path(current_user) %>
+
+<% if current_user.admin? %>
+    | <%= link_to "delete", @user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+

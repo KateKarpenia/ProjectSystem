@@ -1,0 +1,36 @@
+<h1>Listing Teams</h1>
+
+<td><% if current_user.admin? %> |
+<%= link_to 'New team', new_team_path %>
+<% end %>
+
+<table>
+
+	<tr>
+		<th>Name</th>
+		
+	</tr>
+
+<% @team.each do |team| %>
+		<tr>
+			<td><%= team.name %></td>
+			
+			<td><%= link_to 'Show', team_path(team) %></td>
+			
+			<td><% if current_user.admin? %> |
+			<td><%= link_to 'Edit', edit_team_path(team) %></td>
+			<% end %></td>
+			
+			<td><% if current_user.admin? %> | 
+			<%= link_to "delete", team, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  			<% end %></td>
+			
+			
+		</tr>
+		
+<% end %>
+
+        
+</table>
+

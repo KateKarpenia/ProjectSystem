@@ -36,8 +36,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.boolean :admin,			:default => false
       
-      #t.integer :team_id
-      t.references :team, index: true, foreign_key: true
+      t.integer :team_id
+      #t.references :team, index: true, foreign_key: true
 
       t.timestamps null: false
     end

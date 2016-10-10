@@ -1,0 +1,28 @@
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+ 
+
+
+
+<% if(@user) %>
+    <%= form_for @user, :url => join_team_user_path(@team, @user) do |f| %>
+      <%= f.submit "Join Team" %>
+    <% end %>
+<% end %>
+
+
+<%= link_to 'Join', join_team_user_path(@team, current_user), method: :put %>
+
+<%= link_to 'Back', teams_path %>
+
+<%= link_to 'Project System', controller: 'projects' %>
+
+<!-- <%= link_to "Settings", edit_user_path(current_user) %> -->
+
+<% if current_user.admin? %>
+    | <%= link_to "delete", @team, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+<% end %>
+
