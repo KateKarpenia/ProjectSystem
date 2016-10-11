@@ -13,26 +13,20 @@
   <%= @user.email %>
 </p>
 
-<!-- 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
- -->
-
 <p>
   <strong>Admin:</strong>
   <%= @user.admin %>
 </p>
 
-
-
+<p>
+  <strong>Team:</strong>
+  <%= @user.team.name %>
+</p>
 
 <%= link_to 'Back', users_path %>
 
-<%= link_to 'Project System', controller: 'projects' %>
-
 <%= link_to "Edit", edit_user_path(current_user) %>
+
 
 <% if current_user.admin? %>
     | <%= link_to "delete", @user, method: :delete,

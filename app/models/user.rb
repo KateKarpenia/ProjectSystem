@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
 	belongs_to :team
-	validates :team_id, presence: false
+	validates :team_id, presence: true
 	
 	before_save { self.email = email.downcase }
 	validates :first_name, presence: true, length: { maximum: 50 }

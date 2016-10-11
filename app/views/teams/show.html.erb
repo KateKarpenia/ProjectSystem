@@ -1,10 +1,67 @@
+
 <p>
   <strong>Name:</strong>
   <%= @team.name %>
 </p>
+
+<h2>Projects</h2>
+<% @team.projects.each do |project| %>
+
+<p>
+  <strong>Name:</strong>
+  <%= project.name %>
+</p>
  
+<p>
+  <strong>Summary:</strong>
+  <%= project.summary %>
+</p>
 
+<p>
+  <strong>Start Date:</strong>
+  <%= project.start_date %>
+</p>
 
+<p>
+  <strong>End Date:</strong>
+  <%= project.end_date %>
+</p>
+ <% end %>	
+	
+
+<% if current_user.admin? %>
+<h2>Add new project</h2>
+
+<%= form_for :project, :url => team_projects_path(@team, @project), method: :post do |f| %>
+  
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :summary %><br>
+    <%= f.text_area :summary %>
+  </p>
+  
+  <p>
+    <%= f.label :start_date %><br>
+    <%= f.datetime_field :start_date %>
+  </p>
+  
+  <p>
+    <%= f.label :end_date %><br>
+    <%= f.datetime_field :end_date %>
+	</p>
+ 
+  <p>
+    <%= f.submit "Add" %>
+  </p>
+    
+<% end %>
+
+<% end %>
 
 <% if(@user) %>
     <%= form_for @user, :url => join_team_user_path(@team, @user) do |f| %>
@@ -12,12 +69,11 @@
     <% end %>
 <% end %>
 
-
 <%= link_to 'Join', join_team_user_path(@team, current_user), method: :put %>
 
 <%= link_to 'Back', teams_path %>
 
-<%= link_to 'Project System', controller: 'projects' %>
+<!-- <%= link_to 'Project System', controller: 'projects' %> -->
 
 <!-- <%= link_to "Settings", edit_user_path(current_user) %> -->
 
@@ -25,4 +81,10 @@
     | <%= link_to "delete", @team, method: :delete,
                                   data: { confirm: "You sure?" } %>
 <% end %>
+
+
+
+
+
+
 

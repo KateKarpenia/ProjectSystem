@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
-before_action :authenticate_user!
+# before_action :authenticate_user!
+before_action :admin_user,     only: [:create, :destroy, :edit, :update]
 
 	def index
 		@project = Project.all
@@ -19,13 +20,16 @@ before_action :authenticate_user!
 	end
   	
   	def create
-  		@project = Project.new(project_params)
-  	
-  		if @project.save
-  			redirect_to @project
+  		@team = Team.find(params[:team_id])
+  		@project = @team.projects.create(project_params)
+  	if @project.save
+  			redirect_to team_path(@team)
   		else
   			render 'new'
   		end
+  		 
+  		
+  
   	end
   	
   	def update
@@ -49,5 +53,9 @@ private
 	def project_params
 		params.require(:project).permit(:name, :summary, :start_date, :end_date)
 	end	 
+	
+	def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 
 end
