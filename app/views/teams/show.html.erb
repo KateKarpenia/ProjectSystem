@@ -7,6 +7,7 @@
 <h2>Projects</h2>
 <% @team.projects.each do |project| %>
 
+
 <p>
   <strong>Name:</strong>
   <%= project.name %>
@@ -26,9 +27,15 @@
   <strong>End Date:</strong>
   <%= project.end_date %>
 </p>
- <% end %>	
-	
 
+<%= link_to 'Show', project_path(project) %>
+
+<% end %>	
+
+
+
+
+	
 <% if current_user.admin? %>
 <h2>Add new project</h2>
 
@@ -69,7 +76,7 @@
     <% end %>
 <% end %>
 
-<%= link_to 'Join', join_team_user_path(@team, current_user), method: :put %>
+<%= link_to 'Join', join_team_user_path(@team, current_user), method: :put %> |
 
 <%= link_to 'Back', teams_path %>
 
@@ -78,7 +85,7 @@
 <!-- <%= link_to "Settings", edit_user_path(current_user) %> -->
 
 <% if current_user.admin? %>
-    | <%= link_to "delete", @team, method: :delete,
+    | <%= link_to "Delete", @team, method: :delete,
                                   data: { confirm: "You sure?" } %>
 <% end %>
 

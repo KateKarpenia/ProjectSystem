@@ -1,3 +1,10 @@
+<p> 
+<strong>Please choose team which you belong.</strong><br>
+If you don`t belong any team choose "None"
+</p>
+
+<%= link_to 'Teams', controller: 'teams' %>
+
 <p>
   <strong>First Name:</strong>
   <%= @user.first_name %>
@@ -19,17 +26,22 @@
 </p>
 
 <p>
-  <strong>Team:</strong>
-  <%= @user.team.name %>
+	<strong>Posts:</strong>
+ 		<%= current_user.posts %>
+ 
+  	
 </p>
 
-<%= link_to 'Back', users_path %>
 
-<%= link_to "Edit", edit_user_path(current_user) %>
+<%= link_to 'Home page', welcome_index_path %>
+
+<!-- <%= link_to 'Back', users_path %> -->
+
+<%= link_to "Edit your profile", edit_user_path(current_user) %>
 
 
 <% if current_user.admin? %>
-    | <%= link_to "delete", @user, method: :delete,
+    | <%= link_to "Delete", @user, method: :delete,
                                   data: { confirm: "You sure?" } %>
   <% end %>
 

@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
 	
 	belongs_to :team
+	has_many :posts, dependent: :destroy
+	
 	validates :team_id, presence: true
 	validates :name, presence: true,
 					length: {minimum: 5}

@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011164640) do
+ActiveRecord::Schema.define(version: 20161013112652) do
+
+  create_table "posts", force: :cascade do |t|
+    t.text     "content",    limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.integer  "project_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "posts", ["project_id"], name: "index_posts_on_project_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -50,11 +61,15 @@ ActiveRecord::Schema.define(version: 20161011164640) do
     t.boolean  "admin",                              default: false
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
+    #t.integer  "teams_id",               limit: 4
     t.integer  "team_id",                limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["team_id"], name: "index_users_on_team_id", using: :btree
+  #add_index "users", ["teams_id"], name: "index_users_on_teams_id", using: :btree
 
+  add_foreign_key "posts", "projects"
+  add_foreign_key "posts", "users"
 end

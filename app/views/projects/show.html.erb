@@ -18,6 +18,15 @@
   <%= @project.end_date %>
 </p>
 
+<h3>Posts</h3>
+<%= render @project.posts %>
+
+<h3>Add new post</h3>
+<%= render 'posts/form' %>
+
+
+
+
 <% if current_user.admin? %>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <% end %>

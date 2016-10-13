@@ -1,11 +1,11 @@
 <h1>Listing Teams</h1>
 
-<td><% if current_user.admin? %> |
+<td><% if current_user.admin? %>
 <%= link_to 'New team', new_team_path %>
 <% end %>
 
 <p> 
-<strong>Please choose team which you belong.</strong>
+<strong>Please choose team which you belong.</strong><br>
 If you don`t belong any team, please chose "None"
 </p>
 
@@ -27,7 +27,7 @@ If you don`t belong any team, please chose "None"
 			<% end %></td>
 			
 			<td><% if current_user.admin? %> | 
-			<%= link_to "delete", team, method: :delete,
+			<%= link_to "Delete", team, method: :delete,
                                   data: { confirm: "You sure?" } %>
   			<% end %></td>
 			

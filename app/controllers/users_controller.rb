@@ -10,6 +10,7 @@ def index
 
 def show
     @user = User.find(params[:id])
+    @posts = current_user.posts
     
   end
   
@@ -29,6 +30,7 @@ def update
 def create
   @user = User.new(user_params)
   if @user.save
+  	
   	redirect_to @user
   else
   	render 'new'
