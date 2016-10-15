@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base
 
+	after_initialize :default_values
+
 	belongs_to :team
+	
 	has_many :posts
+	has_many :projects, through: :posts
+	
+	accepts_nested_attributes_for :posts
 	
 	validates :team_id, presence: false
 	
@@ -23,5 +29,10 @@ class User < ActiveRecord::Base
     def admin?
     	admin
 	end
+	
+	private
+    def default_values
+      self.team_id ||= "10"
+    end
          
 end

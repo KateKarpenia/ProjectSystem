@@ -6,11 +6,13 @@ class UsersController < ApplicationController
 
 def index
     @user = User.all
+    
   end
 
 def show
     @user = User.find(params[:id])
-    @posts = current_user.posts
+    # @posts = current_user.posts
+    @post = Post.where(:user_id => current_user.id)
     
   end
   
@@ -30,9 +32,9 @@ def update
 def create
   @user = User.new(user_params)
   if @user.save
-  	
   	redirect_to @user
   else
+    flash[:error] = 'Invalid email/password combination'
   	render 'new'
   end
   

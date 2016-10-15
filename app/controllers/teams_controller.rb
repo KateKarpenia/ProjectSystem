@@ -12,6 +12,8 @@ def show
     @team_members = @team.users
 #    @user = current_user.users.build if signed_in?
 	
+	
+	
 end
 
 def new

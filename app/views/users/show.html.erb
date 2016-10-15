@@ -1,10 +1,11 @@
+<div class="container">
 <p> 
 <strong>Please choose team which you belong.</strong><br>
-If you don`t belong any team choose "None"
+<i>If you don`t belong any team choose "None"</i>
 </p>
-
+<!-- 
 <%= link_to 'Teams', controller: 'teams' %>
-
+ -->
 <p>
   <strong>First Name:</strong>
   <%= @user.first_name %>
@@ -21,21 +22,18 @@ If you don`t belong any team choose "None"
 </p>
 
 <p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
+  <strong>Team:</strong>
+  <%= @user.team.name %>
 </p>
 
-<p>
-	<strong>Posts:</strong>
- 		<%= current_user.posts %>
+<!-- <p>
+  <strong>Posts:</strong>
  
-  	
-</p>
+  <%= current_user.posts %>
+ 
+</p> -->
 
 
-<%= link_to 'Home page', welcome_index_path %>
-
-<!-- <%= link_to 'Back', users_path %> -->
 
 <%= link_to "Edit your profile", edit_user_path(current_user) %>
 
@@ -45,3 +43,4 @@ If you don`t belong any team choose "None"
                                   data: { confirm: "You sure?" } %>
   <% end %>
 
+</div>

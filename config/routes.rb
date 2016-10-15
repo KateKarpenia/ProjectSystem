@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-  
-  
-  
+   
   get 'welcome/index'
-  
+  get 'projects' => 'projects#index', as: :projects
+  get 'teams' => 'teams#index', as: :teams
+  get 'users' => 'users#index', as: :users
+
+
   resources :projects
   resources :users
   resources :teams
-  resources :posts
+  
   
   resources :users, :only=>:join do
     member do
@@ -28,13 +30,26 @@ resources :teams do
   resources :projects
 end
 
-resources :users do
-	resources :posts
-end
+# resources :users do
+# 	resources :posts
+# end
 
-resources :projects do
-	resources :posts
-end
+# resources :projects do
+# 	resources :posts
+# end
+# resources :posts
+
+
+    resources :projects do
+      resources :posts
+      resource :user
+    end
+
+
+# resources :projects do
+#   resources :users
+#   resources :posts
+# end
 
   
   #get 'persons/profile', as: 'user_root'

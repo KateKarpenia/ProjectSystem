@@ -1,4 +1,4 @@
-
+<div class="container">
 
 <p>
   <strong>You are added</strong>
@@ -6,13 +6,12 @@
 </p>
 
 <%= link_to 'Back', welcome_index_path %>
-
-<%= link_to 'Project System', controller: 'projects' %>
-
-<%= link_to "Settings", edit_user_path(current_user) %>
+<br />
+<%= link_to "Edit your profile", edit_user_path(current_user) %>
 
 <% if current_user.admin? %>
     | <%= link_to "delete", @user, method: :delete,
                                   data: { confirm: "You sure?" } %>
   <% end %>
 
+</div>

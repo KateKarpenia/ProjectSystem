@@ -1,3 +1,7 @@
+<% provide(:teams, "active") %>
+<% provide(:title, "Teams") %>
+
+<div class="container">
 <h1>Listing Teams</h1>
 
 <td><% if current_user.admin? %>
@@ -6,10 +10,10 @@
 
 <p> 
 <strong>Please choose team which you belong.</strong><br>
-If you don`t belong any team, please chose "None"
+<i>If you don`t belong any team, please chose "None"</i>
 </p>
 
-<table>
+<table class = 'table'>
 
 	<tr>
 		<th>Name</th>
@@ -22,11 +26,11 @@ If you don`t belong any team, please chose "None"
 			
 			<td><%= link_to 'Show', team_path(team) %></td>
 			
-			<td><% if current_user.admin? %> |
+			<td><% if current_user.admin? %> 
 			<td><%= link_to 'Edit', edit_team_path(team) %></td>
 			<% end %></td>
 			
-			<td><% if current_user.admin? %> | 
+			<td><% if current_user.admin? %>  
 			<%= link_to "Delete", team, method: :delete,
                                   data: { confirm: "You sure?" } %>
   			<% end %></td>
@@ -37,5 +41,6 @@ If you don`t belong any team, please chose "None"
 <% end %>
         
 </table>
-
-<%= link_to 'Back', welcome_index_path %>
+<!-- 
+<%= link_to 'Back', welcome_index_path %> -->
+</div>
