@@ -4,6 +4,8 @@
 <div class="container">
 <h1>Listing Users</h1>
 
+<%= will_paginate %>
+
 <table class = "table">
 
 	<tr>
@@ -14,7 +16,7 @@
 		<th>Team</th>
 	</tr>
 
-<% @user.each do |user| %>
+<% @users.each do |user| %>
 		<tr>
 			<td><%= user.first_name %></td>
 			<td><%= user.last_name %></td>
@@ -37,6 +39,7 @@
 
         
 </table>
+<%= will_paginate %>
 
 <%= link_to 'Back', welcome_index_path %>
 </div>

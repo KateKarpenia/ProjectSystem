@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 	
 	private
     def default_values
-      self.team_id ||= "10"
+      self.team_id ||= "1"
     end
          
 end
