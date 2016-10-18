@@ -2,7 +2,8 @@ class Project < ActiveRecord::Base
 	
 	belongs_to :team
 	has_many :posts, dependent: :destroy
-	has_many :users, through: :posts
+	# has_many :users, through: :posts
+	has_many :users, through: :team
 	
 	validates :team_id, presence: true
 	validates :name, presence: true,
