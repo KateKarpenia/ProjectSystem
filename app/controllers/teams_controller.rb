@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
 
+before_action :authenticate_user!
 before_action :admin_user,     only: [:create, :destroy, :edit, :update]
 
 def index

@@ -5,21 +5,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
-<!-- <p class="notice"><%= notice %></p>
-<p class="alert alert-info"><%= alert %></p> -->
+<div class="notice">
+	<%= notice %></div>
 
-<% if notice %>
-    <p class="notice"><%= notice %></p>
-<% end %>
-<% if alert %>
-    <p class="alert alert-danger"><%= notice %></p>
-<% end %>
+<div class="alert">
+	<%= alert %>
+</div>
 
 <%= render 'shared/navbar' %>
 	<%= yield %>
-
+<%= render 'shared/footer' %>
 </body>
 </html>
+

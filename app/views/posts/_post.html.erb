@@ -7,14 +7,32 @@
 
  <table class = 'table'>
  
+ 	<!-- <tr>
+		<th><% if @user %>Project name<% end %></th>
+		<th><% if @project %>User last name<% end %></th>
+		<th>Posts</th>
+		
+	</tr> -->
+ 
  
 	<tr>
+		
+		<td><% if @user %>
+				<%= post.project.name %>
+		<% end %></td>
+
+		<td><% if @project %>
+				<%= post.user.last_name %>
+		<% end %></td>
+		
 		<td><%= post.content %></td>
+
 		<td><% if current_user.admin? %>
   				<%= link_to 'Destroy Post', [post.project, post],
                	method: :delete,
                	data: { confirm: 'Are you sure?' } %>
 		<% end %></td>
+
 	</tr>
 	
 </table>

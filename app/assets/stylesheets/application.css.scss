@@ -1,5 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body { 
+	padding-top: 65px; 
+    padding-bottom: 65px; 
+}
 
+.alert {
+	
+	margin-left: 80px;
+	color: red;
+}
 
+.notice {
+	
+	margin-left: 80px;
+	color: green;
+}

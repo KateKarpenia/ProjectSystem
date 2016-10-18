@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 	
 	has_many :posts
 	# has_many :projects, through: :posts
-	has_many :projects, through: :teams
+	has_many :projects, through: :team
 	
 	accepts_nested_attributes_for :posts
 	

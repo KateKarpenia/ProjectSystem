@@ -4,15 +4,7 @@ class PostsController < ApplicationController
       # @posts = current_user.posts
       @posts = Post.all
 
-	# if params[:project_id]
-	# 	@post = Project.find(params[:project_id]).posts
-	# elsif params[:user_id]
-	# 	@posts = User.find(params[:user_id]).posts
-	# else
-	# 	@posts = Post.all
-	# end
-		
-    
+	
     end
 
 	# def show
